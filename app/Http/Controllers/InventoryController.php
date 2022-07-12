@@ -17,15 +17,11 @@ class InventoryController extends Controller
     }
 
     public function index(){
-        $data = Inventory::orderBy('created_at','desc')->get();
-        return response()->json([
-            'data' => $data
-        ], 200);
-        // return response()->fetch(
-        //     "All Inventories",
-        //     Inventory::orderBy('created_at','desc')->get(),// $this->inventory->index(),
-        //     "data"
-        // );
+        return response()->fetch(
+            "All Inventories",
+            Inventory::orderBy('created_at','desc')->get(),// $this->inventory->index(),
+            "data"
+        );
     }
 
     public function show($id){
