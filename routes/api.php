@@ -30,18 +30,18 @@ Route::group(["prefix" => "auth"], function () {
 });
 
 
-
+Route::group(["prefix" => "/inventory"], function () {
+    Route::get("/all", [InventoryController::class, 'index']);
+    Route::get("/{id}", [InventoryController::class, 'show']);
+    Route::post("/add", [InventoryController::class, 'create']);
+    Route::put("/edit/{id}", [InventoryController::class, 'edit']);
+    Route::delete("/delete/{id}", [InventoryController::class, 'delete']);
+});
 // JWT Protected Routes
 Route::group(["middleware" => "auth"], function () {
 
     // Inventory Routes
-    Route::group(["prefix" => "/inventory"], function () {
-        Route::get("/all", [InventoryController::class, 'index']);
-        Route::get("/{id}", [InventoryController::class, 'show']);
-        Route::post("/add", [InventoryController::class, 'create']);
-        Route::put("/edit/{id}", [InventoryController::class, 'edit']);
-        Route::delete("/delete/{id}", [InventoryController::class, 'delete']);
-    });
+    
 
 
     // Cart Routes
