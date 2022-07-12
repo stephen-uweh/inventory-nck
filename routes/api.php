@@ -35,7 +35,7 @@ Route::group(["prefix" => "auth"], function () {
 Route::group(["middleware" => "auth"], function () {
 
     // Inventory Routes
-    Route::group(["prefix" => "inventory"], function () {
+    Route::group(["prefix" => "/inventory"], function () {
         Route::get("/", [InventoryController::class, 'index']);
         Route::get("/{id}", [InventoryController::class, 'show']);
         Route::post("/add", [InventoryController::class, 'create']);
