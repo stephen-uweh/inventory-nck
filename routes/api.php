@@ -58,7 +58,7 @@ Route::group(["middleware" => "auth"], function () {
 Route::get('/test', function(){
     $data = Inventory::orderBy('created_at','desc')->get();
     return response()->json([
-        'data' => $data
+        'data' => "Error"
     ], 200);
 });
 
