@@ -19,7 +19,7 @@ class InventoryController extends Controller
     public function index(){
         return response()->fetch(
             "All Inventories",
-            Inventory::orderBy('created_at','desc')->get(),// $this->inventory->index(),
+            $this->inventory->index(),
             "data"
         );
     }
