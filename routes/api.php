@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\InventoryController;
+use App\Models\Inventory;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,13 @@ Route::group(["middleware" => "auth"], function () {
         Route::post('/clear', [CartController::class, 'clearCart']);
     });
 
+});
+
+Route::get('/test', function(){
+    $data = Inventory::orderBy('created_at','desc')->get();
+    return response()->json([
+        'data' => $data
+    ], 200);
 });
 
 
