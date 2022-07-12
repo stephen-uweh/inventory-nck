@@ -55,10 +55,6 @@ Route::group(["middleware" => "auth"], function () {
 
 });
 
-Route::get('/test', function(){
-    return "API";
-});
-
 
 // Redirect for login route
 Route::get('/log', function(){
